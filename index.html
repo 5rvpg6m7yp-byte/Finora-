@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FINORA GLOBAL SERVICES FZE</title>
+<meta name="description" content="FINORA Global Services FZE - Accounting, trading, technology and e-commerce solutions in the UAE.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#07152e;
+  --blue:#1678d3;
+  --cyan:#66ddfa;
+  --light:#f5f8fc;
+  --text:#15243a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Manrope,Arial,sans-serif;background:var(--light);color:var(--text);overflow-x:hidden}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1150px,92%);margin:auto}
+section{scroll-margin-top:80px}
+h1,h2,h3,p{margin-top:0}
+.btn{display:inline-block;border:0;border-radius:40px;padding:15px 25px;font-weight:800;background:linear-gradient(120deg,#2189e8,#6cddfa);color:#06213c;transition:.3s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 35px #238dee55}
+.btn-dark{background:#0b2344;color:white}
+.section{padding:90px 0}
+.section-title{font-size:clamp(32px,5vw,55px);letter-spacing:-2px;line-height:1.12}
+.muted{color:#718096;line-height:1.8}
+.label{color:#278bdc;font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(35px);transition:all .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Logo */
+.logo-mark{width:65px;height:65px;display:grid;place-items:center;position:relative}
+.logo-mark svg{width:100%;height:100%}
+.brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:3px}
+.brand small{display:block;font-size:9px;letter-spacing:2px;color:#73849b;margin-top:3px}
+.brand strong{font-size:22px;color:#0a2650}
+
+/* Opening animation */
+#intro{position:fixed;inset:0;z-index:9999;background:#030b1c;color:white;display:flex;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-inner{text-align:center;position:relative;animation:introRise 1.1s ease both}
+.intro-inner .logo-mark{width:140px;height:140px;margin:0 auto 18px}
+.intro-inner h1{font-size:clamp(45px,9vw,90px);letter-spacing:13px;margin:0}
+.intro-inner p{letter-spacing:5px;font-size:12px;color:#a7c7e8}
+.intro-ring{position:absolute;width:290px;height:290px;border-radius:50%;border:1px solid #53b8ff88;top:25%;left:50%;transform:translate(-50%,-50%);animation:spin 8s linear infinite;pointer-events:none}
+.load-bar{height:3px;background:#ffffff30;width:220px;margin:25px auto;overflow:hidden}
+.load-bar:after{content:"";display:block;width:100%;height:100%;background:var(--cyan);animation:load 2.4s ease forwards}
+.skip{position:absolute;bottom:30px;right:30px;color:white;background:transparent;border:1px solid #ffffff66;border-radius:30px;padding:12px 20px}
+@keyframes load{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@keyframes introRise{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-17px)}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Navigation */
+#progress{position:fixed;top:0;left:0;height:3px;background:#5bdeff;z-index:200;width:0}
+header{background:#ffffffed;backdrop-filter:blur(18px);position:sticky;top:0;z-index:100;border-bottom:1px solid #e0e9f2}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-links{display:flex;gap:25px;align-items:center}
+.nav-links a{font-size:13px;font-weight:700;color:#435773}
+.nav-links a:hover{color:var(--blue)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.cart-button,.menu-button{border:0;background:#eaf4fd;border-radius:50%;width:46px;height:46px;font-size:19px;position:relative}
+.cart-count{position:absolute;right:-3px;top:-4px;background:var(--blue);color:white;border-radius:20px;min-width:19px;height:19px;font-size:11px;display:grid;place-items:center}
+.menu-button{display:none}
+#mobileNav{display:none;background:white;padding:15px 5%;box-shadow:0 18px 25px #0001}
+#mobileNav a{display:block;padding:12px}
+
+/* Hero */
+.hero{min-height:690px;display:flex;align-items:center;position:relative;overflow:hidden;color:white;background:radial-gradient(circle at 76% 43%,#1a5385 0%,transparent 40%),linear-gradient(125deg,#051129,#0b2347 70%,#071429)}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#71b6ff0b 1px,transparent 1px),linear-gradient(90deg,#71b6ff0b 1px,transparent 1px);background-size:65px 65px}
+.hero-layout{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:90px 0}
+.hero h1{font-size:clamp(55px,7vw,92px);line-height:1.08;letter-spacing:-5px;margin:20px 0}
+.gradient-text{background:linear-gradient(100deg,#fff,#6bdfff,#2187e8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:16px;max-width:530px;color:#b6c9df;line-height:1.9}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.ghost{background:#ffffff13;border:1px solid #b3e3ff77;color:white}
+.type-line{margin-top:24px;font-size:12px;letter-spacing:2px}
+#changingText{color:#6de4ff;font-weight:800}
+.hero-art{height:450px;display:grid;place-items:center;position:relative}
+.orbit-circle{position:absolute;aspect-ratio:1;border:1px solid #7cdaff55;border-radius:50%}
+.orbit-circle.one{width:94%;animation:orbit 25s linear infinite}
+.orbit-circle.two{width:73%;border-style:dashed;animation:orbit 18s linear infinite reverse}
+.orbit-circle.three{width:53%}
+.hero-core{width:60%;aspect-ratio:1;position:relative;border-radius:50%;background:radial-gradient(circle,#f5fdff,#b3e4ff 70%,#338bd3);display:grid;place-items:center;box-shadow:0 0 105px #35baff66;animation:float 5s ease-in-out infinite}
+.hero-core .logo-mark{width:75%;height:75%}
+.floating-card{position:absolute;background:#081a34d9;border:1px solid #62bffc77;backdrop-filter:blur(10px);border-radius:16px;padding:16px;color:#a9cceb;font-size:12px;box-shadow:0 20px 50px #0005;animation:float 6s ease-in-out infinite}
+.floating-card b{display:block;color:white;margin-bottom:4px}
+.floating-card.a{right:0;top:16%}
+.floating-card.b{left:0;bottom:18%;animation-delay:-3s}
+
+/* Moving marquee */
+.marquee{background:#0c2850;overflow:hidden;color:#94d8fd;padding:20px 0;white-space:nowrap}
+.marquee-inner{display:flex;width:max-content;animation:ticker 28s linear infinite}
+.marquee-inner span{font-weight:800;letter-spacing:2px;font-size:13px;padding:0 30px}
+
+/* Services */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px}
+.stat{background:white;border:1px solid #e2eaf3;border-radius:20px;padding:27px}
+.stat strong{font-size:42px;color:#092c59}
+.stat small{display:block;font-size:11px;letter-spacing:2px;color:#70839a;margin-top:8px}
+.solutions{background:#081b37;color:white}
+.solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.solution-card{min-height:310px;background:linear-gradient(145deg,#143b70,#235f99);padding:30px;border-radius:24px;transition:.35s;overflow:hidden;position:relative}
+.solution-card:nth-child(2){background:linear-gradient(145deg,#0f5871,#1695b1)}
+.solution-card:nth-child(3){background:linear-gradient(145deg,#253771,#5261aa)}
+.solution-card:after{content:"";position:absolute;width:230px;height:230px;right:-65px;top:-60px;border:1px solid #ffffff55;border-radius:50%;box-shadow:0 0 0 35px #ffffff09,0 0 0 65px #ffffff07}
+.solution-card:hover{transform:translateY(-10px)}
+.solution-card .symbol{font-size:65px;margin:30px 0 23px}
+.solution-card h3{font-size:24px}
+.solution-card p{font-size:13px;color:#e1edff;line-height:1.8}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:35px}
+.service-card{display:flex;gap:18px;align-items:center;padding:22px;background:white;border:1px solid #e2ebf3;border-radius:18px;transition:.3s}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px #0a325012}
+.service-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:15px;background:#eaf5ff;font-size:24px;flex-shrink:0}
+.service-card h3{font-size:15px;margin:0 0 6px}
+.service-card small{font-size:11px;color:#7e90a5}
+
+/* Shop */
+.shop-section{background:#edf4fa}
+.shop-info{border:1px solid #badcf5;background:#e1f1ff;border-radius:13px;padding:15px;margin:22px 0;color:#3a6084;font-size:12px}
+.shop-tools{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:26px 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{background:white;border:1px solid #d6e3ef;color:#4a637e;border-radius:25px;padding:10px 17px;font-size:12px;font-weight:800}
+.filter.active{background:#0b2b52;color:white}
+.search{border:1px solid #d5e3ee;border-radius:25px;padding:12px 17px;outline:none;background:white}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.product-card{background:white;border-radius:22px;overflow:hidden;border:1px solid #e0eaf3;transition:.3s}
+.product-card:hover{transform:translateY(-7px);box-shadow:0 14px 45px #12345618}
+.product-art{height:190px;background:radial-gradient(circle at top,#f5fdff,#cde6fa);display:grid;place-items:center;position:relative;overflow:hidden}
+.product-art:before{content:"";position:absolute;width:130px;height:130px;border:1px solid white;border-radius:50%;box-shadow:0 0 0 30px #ffffff33,0 0 0 60px #ffffff20}
+.product-art .emoji{font-size:73px;position:relative;filter:drop-shadow(0 12px 12px #12345635)}
+.category-tag{position:absolute;top:12px;left:12px;background:#ffffffdd;color:#28618c;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:800;z-index:1}
+.product-body{padding:18px}
+.product-body small{font-size:11px;color:#7990a6;text-transform:uppercase}
+.product-body h3{font-size:14px;min-height:44px;line-height:1.5;margin:7px 0 14px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center}
+.product-bottom strong{color:#083263;font-size:16px}
+.add-btn{border:0;background:#081d3f;color:white;border-radius:50%;height:38px;width:38px;font-size:23px}
+.shop-callout{display:flex;align-items:center;justify-content:space-between;gap:20px;background:white;border-radius:20px;padding:27px;margin-top:25px}
+
+/* About and contact */
+.about-grid,.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-visual{height:350px;display:grid;place-items:center;border-radius:30px;background:radial-gradient(circle,#4da6ea,#123a6e 50%,#07152e 90%)}
+.about-visual .logo-mark{width:210px;height:210px;background:#edfaff;border-radius:50%;box-shadow:0 0 90px #42baff66}
+.contact-section{background:#091c39;color:white}
+.contact-form{background:white;color:#14243e;border-radius:24px;padding:28px}
+.field{margin:0 0 16px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
+.field input,.field textarea{width:100%;border:1px solid #dbe6f0;border-radius:11px;padding:13px;outline:none;background:#f9fbfd}
+.field input:focus,.field textarea:focus{border-color:#2a92e7}
+footer{background:#061329;color:#b4c4da;text-align:center;padding:30px;font-size:12px}
+
+/* Drawer */
+.backdrop{position:fixed;inset:0;background:#001021a5;z-index:500;display:none}
+.backdrop.open{display:block}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(445px,100%);background:white;z-index:501;transform:translateX(110%);transition:.35s;display:flex;flex-direction:column}
+.cart-drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:23px;border-bottom:1px solid #e1eaf2}
+.close-btn{border:0;border-radius:50%;width:37px;height:37px;background:#eaf3fb;font-size:20px}
+.cart-items{padding:20px;overflow:auto;flex:1}
+.cart-row{display:flex;gap:13px;padding:15px 0;border-bottom:1px solid #e8edf5}
+.cart-emoji{font-size:30px;background:#eaf3fa;border-radius:13px;width:65px;height:65px;display:grid;place-items:center;flex-shrink:0}
+.quantity{display:flex;align-items:center;gap:12px;margin-top:9px}
+.quantity button{border:1px solid #dde8f0;background:white;border-radius:50%;width:29px;height:29px}
+.drawer-foot{border-top:1px solid #e1eaf2;padding:22px}
+.total{display:flex;justify-content:space-between;font-size:19px;font-weight:800;margin-bottom:18px}
+
+/* Assistant */
+.ai-fab{position:fixed;right:23px;bottom:23px;z-index:350;border:0;color:white;background:linear-gradient(130deg,#1764c5,#41b9e7);border-radius:40px;padding:16px 23px;box-shadow:0 13px 45px #157bd06b;font-weight:800}
+.chatbox{display:none;position:fixed;right:23px;bottom:92px;width:min(390px,calc(100% - 30px));height:520px;max-height:calc(100vh - 115px);border-radius:22px;background:white;box-shadow:0 22px 85px #06162e66;z-index:400;overflow:hidden;flex-direction:column}
+.chatbox.open{display:flex}
+.chat-head{padding:18px;background:linear-gradient(120deg,#0a2b56,#147ba8);color:white;display:flex;justify-content:space-between;align-items:center}
+.chat-head small{display:block;font-size:11px;color:#bde4ff}
+.chat-messages{padding:16px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:12px}
+.bubble{padding:12px 15px;max-width:90%;font-size:13px;line-height:1.6;white-space:pre-line;border-radius:15px}
+.bubble.bot{background:#eaf4fc;color:#244b73;align-self:flex-start}
+.bubble.user{background:#1763a9;color:white;align-self:flex-end}
+.chat-suggestions{padding:8px 12px;display:flex;gap:7px;flex-wrap:wrap}
+.chat-suggestions button{border:1px solid #cbdeef;background:#f4faff;border-radius:20px;color:#28638c;font-size:11px;padding:7px}
+.chat-form{display:flex;padding:12px;gap:8px;border-top:1px solid #e2eaf4}
+.chat-form input{flex:1;min-width:0;border:0;outline:0;padding:9px}
+.chat-form button{background:#177aca;color:white;border:0;border-radius:12px;padding:0 15px}
+
+/* Checkout */
+.checkout-wrap{position:fixed;inset:0;z-index:700;background:#061327b9;display:none;align-items:center;justify-content:center;padding:15px}
+.checkout-wrap.open{display:flex}
+.checkout{background:white;border-radius:24px;padding:27px;width:min(500px,100%);max-height:93vh;overflow:auto}
+.checkout-top{display:flex;justify-content:space-between;align-items:center}
+.payment-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.payment-option{border:1px solid #dae5ef;border-radius:12px;padding:13px;font-size:13px;font-weight:700}
+.payment-note{font-size:12px;line-height:1.7;padding:13px;background:#fff7e5;color:#715b20;border-radius:12px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,35px);background:#081d3b;color:white;padding:13px 20px;border-radius:13px;z-index:10000;opacity:0;transition:.3s;max-width:90%;text-align:center;font-size:13px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:950px){
+.nav-links{gap:12px}
+.nav-links a{font-size:11px}
+.product-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+.nav-links{display:none}
+.menu-button{display:block}
+.hero-layout{grid-template-columns:1fr}
+.hero h1{font-size:clamp(46px,10vw,75px);letter-spacing:-3px}
+.hero-art{height:340px}
+.section{padding:65px 0}
+.stats{grid-template-columns:1fr 1fr}
+.stats .stat:last-child{grid-column:1/-1}
+.solutions-grid{grid-template-columns:1fr}
+.solution-card{min-height:250px}
+.services-grid{grid-template-columns:1fr}
+.product-grid{grid-template-columns:repeat(2,1fr)}
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.shop-callout{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:450px){
+.brand strong{font-size:17px}
+.brand small{font-size:7px}
+.logo-mark{width:48px;height:48px}
+.nav{height:72px}
+.hero-art{height:270px}
+.floating-card{padding:10px;font-size:10px}
+.product-art{height:140px}
+.product-art .emoji{font-size:52px}
+.product-body{padding:12px}
+.product-body h3{font-size:12px}
+.product-bottom strong{font-size:13px}
+.payment-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- BRAND SYMBOL -->
+<template id="logoTemplate">
+<div class="logo-mark">
+<svg viewBox="0 0 100 100" aria-label="FINORA logo symbol">
+<defs>
+<linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+<stop stop-color="#80e4ff"/>
+<stop offset=".48" stop-color="#1989dd"/>
+<stop offset="1" stop-color="#051b52"/>
+</linearGradient>
+</defs>
+<ellipse cx="50" cy="54" rx="45" ry="26" fill="none" stroke="url(#logoGradient)" stroke-width="6" transform="rotate(-34 50 54)"/>
+<text x="24" y="66" font-family="Georgia,serif" font-size="65" fill="url(#logoGradient)" font-weight="bold">G</text>
+<text x="57" y="69" font-family="Georgia,serif" font-size="37" fill="#154682">S</text>
+<path d="M81 9l2.5 6.5L90 18l-6.5 2.5L81 27l-2.5-6.5L72 18l6.5-2.5Z" fill="#48b6ee"/>
+</svg>
+</div>
+</template>
+
+<div id="progress"></div>
+
+<!-- Opening animation -->
+<div id="intro">
+<div class="intro-inner">
+<div class="intro-ring"></div>
+<div data-logo></div>
+<h1>FINORA</h1>
+<p>GLOBAL SERVICES FZE</p>
+<div class="load-bar"></div>
+<p>BEYOND BUSINESS. BEYOND BOUNDARIES.</p>
+</div>
+<button class="skip" onclick="skipIntro()">Skip intro ↗</button>
+</div>
+
+<!-- Header -->
+<header>
+<div class="container nav">
+<a href="#home" class="brand">
+<div data-logo></div>
+<div><strong>FINORA</strong><small>GLOBAL SERVICES FZE</small></div>
+</a>
+
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#solutions">Solutions</a>
+<a href="#services">Services</a>
+<a href="#shop">Marketplace</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-actions">
+<button class="cart-button" onclick="openCart()">🛍️ <span class="cart-count" id="cartCount">0</span></button>
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+</div>
+</div>
+<nav id="mobileNav">
+<a href="#home">Home</a>
+<a href="#solutions">Solutions</a>
+<a href="#services">Services</a>
+<a href="#shop">Marketplace</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero" id="home">
+<div class="container hero-layout">
+<div>
+<div class="label" style="color:#83dbff">AJMAN FREE ZONE · UNITED ARAB EMIRATES</div>
+<h1>Connecting<br>possibilities.<br><span class="gradient-text">Creating futures.</span></h1>
+<p>From finance and technology to international trade and e-commerce. One forward-thinking partner for what's next.</p>
+<div class="type-line">WE MAKE IT SIMPLE: <span id="changingText">GLOBAL COMMERCE</span></div>
+<div class="hero-buttons">
+<a href="#services" class="btn">Explore our world ↗</a>
+<a href="#shop" class="btn ghost">Discover the shop →</a>
+</div>
+</div>
+
+<div class="hero-art">
+<div class="orbit-circle one"></div>
+<div class="orbit-circle two"></div>
+<div class="orbit-circle three"></div>
+<div class="hero-core"><div data-logo></div></div>
+<div class="floating-card a"><b>✦ COMMERCE</b>Connected opportunities</div>
+<div class="floating-card b"><b>✦ FINANCE + TECH</b>Business reimagined</div>
+</div>
+</div>
+</section>
+
+<!-- Scrolling business categories -->
+<div class="marquee">
+<div class="marquee-inner">
+<span>✦ E-COMMERCE</span><span>✦ ACCOUNTING & BOOKKEEPING</span>
+<span>✦ GLOBAL TRADING</span><span>✦ TECHNOLOGY CONSULTANCY</span>
+<span>✦ MANAGEMENT CONSULTANCY</span>
+<span>✦ E-COMMERCE</span><span>✦ ACCOUNTING & BOOKKEEPING</span>
+<span>✦ GLOBAL TRADING</span><span>✦ TECHNOLOGY CONSULTANCY</span>
+<span>✦ MANAGEMENT CONSULTANCY</span>
+</div>
+</div>
+
+<!-- Introduction -->
+<section class="section">
+<div class="container">
+<div class="label reveal">WELCOME TO FINORA / 01</div>
+<h2 class="section-title reveal">One partner.<br>Infinite possibilities.</h2>
+<p class="muted reveal">FINORA GLOBAL SERVICES FZE connects business services, digital innovation, finance and global trading through one ambitious company.</p>
+<div class="stats reveal">
+<div class="stat"><strong>10+</strong><small>LICENSED BUSINESS ACTIVITIES</small></div>
+<div class="stat"><strong>03</strong><small>CONNECTED BUSINESS WORLDS</small></div>
+<div class="stat"><strong>UAE ↗</strong><small>BASED IN AJMAN FREE ZONE</small></div>
+</div>
+</div>
+</section>
+
+<!-- Solutions -->
+<section class="section solutions" id="solutions">
+<div class="container">
+<div class="label" style="color:#83dcff">THE FINORA UNIVERSE / 02</div>
+<h2 class="section-title reveal">Three worlds.<br>One extraordinary partner.</h2>
+<div class="solutions-grid">
+<div class="solution-card reveal">
+<div class="label" style="color:#bde7ff">01 / FINANCE</div>
+<div class="symbol">◈</div>
+<h3>Financial Confidence.</h3>
+<p>Accounting, bookkeeping and business-management support.</p>
+</div>
+<div class="solution-card reveal">
+<div class="label" style="color:#bde7ff">02 / COMMERCE</div>
+<div class="symbol">◎</div>
+<h3>Commerce Without Limits.</h3>
+<p>E-commerce, technology wholesale, foodstuff and cosmetics trading.</p>
+</div>
+<div class="solution-card reveal">
+<div class="label" style="color:#bde7ff">03 / TECHNOLOGY</div>
+<div class="symbol">✳</div>
+<h3>Smarter Digital Thinking.</h3>
+<p>IT consultancy and connected business solutions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Licensed activities -->
+<section class="section" id="services">
+<div class="container">
+<div class="label reveal">WHAT WE DO / 03</div>
+<h2 class="section-title reveal">Expertise that<br>moves you forward.</h2>
+<p class="muted">Our ten licensed business activities:</p>
+<div class="services-grid" id="servicesGrid"></div>
+</div>
+</section>
+
+<!-- Online shop -->
+<section class="section shop-section" id="shop">
+<div class="container">
+<div class="label reveal">FINORA MARKETPLACE / 04</div>
+<h2 class="section-title reveal">Discover. Add. Shop.</h2>
+<p class="muted reveal">Explore products and let our smart shopping assistant build your cart from a shopping list.</p>
+<div class="shop-info">
+<strong>DEMONSTRATION STORE:</strong> The products and prices below are examples, not confirmed FINORA inventory. No real payments or orders are processed yet.
+</div>
+
+<div class="shop-tools">
+<div class="filters" id="filters">
+<button class="filter active" data-filter="all">All products</button>
+<button class="filter" data-filter="technology">Technology</button>
+<button class="filter" data-filter="food">Food & Beverages</button>
+<button class="filter" data-filter="beauty">Perfumes & Beauty</button>
+</div>
+<input class="search" id="productSearch" type="search" placeholder="Search products...">
+</div>
+
+<div class="product-grid" id="productGrid"></div>
+<p id="noResults" class="muted" hidden>No products found.</p>
+
+<div class="shop-callout">
+<div><strong>✦ Need multiple items?</strong><p class="muted" style="margin:7px 0 0">Tell FINORA Assistant: “Add 2 keyboards, 1 monitor and 3 USB-C hubs.”</p></div>
+<button class="btn btn-dark" onclick="openAI()">Build my shopping list ↗</button>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+<div class="container about-grid">
+<div class="about-visual reveal"><div data-logo></div></div>
+<div class="reveal">
+<div class="label">WHO WE ARE / 05</div>
+<h2 class="section-title">Business has<br>no boundaries.</h2>
+<p class="muted">FINORA GLOBAL SERVICES FZE is based in Ajman Free Zone, UAE. We bring together accounting, management consultancy, technology, trading and online commerce to support evolving business requirements.</p>
+<a href="#contact" class="btn btn-dark">Connect with FINORA ↗</a>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+<div class="container contact-grid">
+<div class="reveal">
+<div class="label" style="color:#74dafa">LET'S CONNECT / 06</div>
+<h2 class="section-title">Let's build<br>what's next.</h2>
+<p style="color:#b9cde2;line-height:1.8">Have a business enquiry, wholesale requirement or consultancy project? Contact FINORA.</p>
+<p>📍 Ajman Free Zone, Ajman, UAE</p>
+<p>✦ FINORA GLOBAL SERVICES FZE</p>
+</div>
+
+<form class="contact-form reveal" id="contactForm">
+<h3>Send an enquiry</h3>
+<div class="field"><label>Full Name</label><input id="contactName" required placeholder="Your name"></div>
+<div class="field"><label>Email Address</label><input id="contactEmail" type="email" required placeholder="you@example.com"></div>
+<div class="field"><label>Your Message</label><textarea id="contactMessage" required rows="5" placeholder="Tell us what you need..."></textarea></div>
+<button class="btn" style="width:100%" type="submit">Send Enquiry ↗</button>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>FINORA GLOBAL SERVICES FZE</strong>
+<p style="margin:10px 0">Ajman Free Zone · United Arab Emirates</p>
+© <span id="year"></span> FINORA. All rights reserved.
+</footer>
+
+<!-- Cart -->
+<div class="backdrop" id="backdrop" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+<div class="drawer-head">
+<h2 style="font-size:22px;margin:0">Your Shopping Bag</h2>
+<button class="close-btn" onclick="closeCart()">×</button>
+</div>
+<div class="cart-items" id="cartItems"></div>
+<div class="drawer-foot">
+<div class="total"><span>Subtotal</span><span id="subtotal">AED 0.00</span></div>
+<button class="btn" style="width:100%" onclick="openCheckout()">Proceed to Checkout →</button>
+<p class="muted" style="font-size:11px;margin-top:15px">Demonstration only. Real payments need secure merchant integration.</p>
+</div>
+</aside>
+
+<!-- AI assistant -->
+<button class="ai-fab" onclick="openAI()">✦ Ask FINORA AI</button>
+<div class="chatbox" id="chatbox">
+<div class="chat-head">
+<div><strong>✦ FINORA Assistant</strong><small>Smart Shopping List · Demo</small></div>
+<button class="close-btn" onclick="closeAI()">×</button>
+</div>
+<div class="chat-messages" id="messages">
+<div class="bubble bot">Hello! 👋 Welcome to FINORA.
+
+I can help with our sample products and services.
+
+Try: “Add 2 keyboards, 1 monitor and 3 USB-C hubs.”</div>
+</div>
+<div class="chat-suggestions">
+<button onclick="suggest('Add 2 keyboards and 1 monitor')">Build a tech list</button>
+<button onclick="suggest('Show food products')">Explore food</button>
+<button onclick="suggest('What services do you offer?')">Our services</button>
+</div>
+<form class="chat-form" id="chatForm">
+<input id="chatInput" required placeholder="Type your shopping list...">
+<button type="submit">Send ↗</button>
+</form>
+</div>
+
+<!-- Checkout -->
+<div class="checkout-wrap" id="checkoutWrap">
+<div class="checkout">
+<div class="checkout-top"><h2>Checkout</h2><button class="close-btn" onclick="closeCheckout()">×</button></div>
+<p class="muted" id="checkoutSummary"></p>
+<form id="checkoutForm">
+<div class="field"><label>Full Name</label><input id="buyerName" required></div>
+<div class="field"><label>Email Address</label><input id="buyerEmail" type="email" required></div>
+<div class="field"><label>Delivery Address</label><textarea id="buyerAddress" rows="2" required></textarea></div>
+<strong>Preferred Payment Method</strong>
+<div class="payment-grid">
+<label class="payment-option"><input type="radio" name="payment" value="Card" checked> 💳 Visa / Mastercard</label>
+<label class="payment-option"><input type="radio" name="payment" value="Apple Pay"> Apple Pay</label>
+<label class="payment-option"><input type="radio" name="payment" value="Google Pay"> Google Pay</label>
+<label class="payment-option"><input type="radio" name="payment" value="Bank Transfer"> Bank Transfer</label>
+</div>
+<p class="payment-note">🔒 Payment methods are displayed for demonstration. To accept real card and Apple Pay payments, a secure payment gateway and server must be connected. Never enter actual card details in this prototype.</p>
+<button type="submit" class="btn btn-dark" style="width:100%">Request Quotation →</button>
+</form>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// CONFIGURATION
+// Replace this with the company's real email to enable
+// enquiry and quotation emails.
+const COMPANY_EMAIL = "";
+
+// Display the brand symbol wherever required.
+document.querySelectorAll("[data-logo]").forEach(el=>{
+  el.appendChild(document.getElementById("logoTemplate").content.cloneNode(true));
+});
+
+// CINEMATIC INTRODUCTION
+function skipIntro(){
+  document.getElementById("intro").classList.add("hide");
+}
+setTimeout(skipIntro,2600);
+
+// ANIMATED TEXT
+const changingWords=[
+  "GLOBAL COMMERCE",
+  "ACCOUNTING",
+  "TECHNOLOGY",
+  "SMARTER BUSINESS"
+];
+let wordIndex=0;
+setInterval(()=>{
+  wordIndex=(wordIndex+1)%changingWords.length;
+  document.getElementById("changingText").textContent=changingWords[wordIndex];
+},2800);
+
+// MOBILE MENU
+function toggleMenu(){
+  let nav=document.getElementById("mobileNav");
+  nav.style.display=nav.style.display==="block"?"none":"block";
+}
+document.querySelectorAll("#mobileNav a").forEach(a=>{
+  a.addEventListener("click",()=>{
+    document.getElementById("mobileNav").style.display="none";
+  });
+});
+
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+window.addEventListener("scroll",()=>{
+  let max=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById("progress").style.width=
+    (max>0?scrollY/max*100:0)+"%";
+},{passive:true});
+
+// COMPANY ACTIVITIES
+const activities=[
+  ["🛒","E-Commerce"],
+  ["💻","Wholesale of Computers, Computer Peripheral Equipment & Software"],
+  ["📊","Accounting & Bookkeeping"],
+  ["📈","Management Consultancies"],
+  ["🌍","Foodstuff Trading - Import & Export"],
+  ["⚙️","Information Technology Consultancy"],
+  ["📅","Other Reservation Service and Related Activities"],
+  ["🌸","Perfumes & Cosmetics Trading - Import & Export"],
+  ["🏢","Combined Office Administrative Service Activities"],
+  ["🤝","Commercial Brokers"]
+];
+
+document.getElementById("servicesGrid").innerHTML=activities.map((a,i)=>`
+  <article class="service-card reveal">
+    <div class="service-icon">${a[0]}</div>
+    <div>
+      <h3>${a[1]}</h3>
+      <small>LICENSED ACTIVITY ${String(i+1).padStart(2,"0")}</small>
+    </div>
+  </article>
+`).join("");
+
+document.querySelectorAll(".service-card").forEach(el=>observer.observe(el));
+
+// SHOPPING CATALOG
+// These are sample products and prices, not live stock.
+const products=[
+{id:"keyboard",name:"Premium Wireless Keyboard",category:"technology",price:149,icon:"⌨️",aliases:["keyboards","keyboard"]},
+{id:"monitor",name:"27-inch Edge Monitor",category:"technology",price:849,icon:"🖥️",aliases:["monitors","monitor","screens","screen"]},
+{id:"hub",name:"8-in-1 USB-C Hub",category:"technology",price:189,icon:"🔌",aliases:["usb-c hubs","usb-c hub","usb c hubs","usb c hub","hubs","hub"]},
+{id:"ssd",name:"1TB Portable SSD",category:"technology",price:329,icon:"💾",aliases:["ssds","ssd","storage"]},
+{id:"mouse",name:"Wireless Mouse",category:"technology",price:99,icon:"🖱️",aliases:["mice","mouse"]},
+{id:"laptop",name:"14-inch Business Laptop",category:"technology",price:2399,icon:"💻",aliases:["laptops","laptop"]},
+{id:"rice",name:"Premium Basmati Rice 5kg",category:"food",price:49,icon:"🍚",aliases:["basmati rice","rice"]},
+{id:"oil",name:"Extra Virgin Olive Oil 1L",category:"food",price:42,icon:"🫒",aliases:["olive oil","oil"]},
+{id:"coffee",name:"Arabica Coffee Beans 1kg",category:"food",price:75,icon:"☕",aliases:["coffee beans","coffee"]},
+{id:"oud",name:"Signature Oud Perfume",category:"beauty",price:215,icon:"🧴",aliases:["oud perfume","oud","perfumes","perfume"]},
+{id:"skincare",name:"Daily Skincare Collection",category:"beauty",price:139,icon:"🧼",aliases:["skincare","skin care"]},
+{id:"beauty",name:"Beauty Essentials Gift Set",category:"beauty",price:199,icon:"💄",aliases:["cosmetics","beauty","makeup"]}
+];
+
+const formatMoney=n=>"AED "+n.toLocaleString("en-AE",{
+  minimumFractionDigits:2,
+  maximumFractionDigits:2
+});
+
+let currentFilter="all";
+let cart={};
+
+try{
+  cart=JSON.parse(localStorage.getItem("finoraCart")||"{}")||{};
+}catch(e){cart={};}
+
+// RENDER PRODUCTS
+function renderProducts(){
+  const query=document.getElementById("productSearch").value.toLowerCase();
+  const filtered=products.filter(p=>
+    (currentFilter==="all"||p.category===currentFilter)&&
+    (p.name.toLowerCase().includes(query)||p.aliases.some(a=>a.includes(query)))
+  );
+
+  document.getElementById("productGrid").innerHTML=filtered.map(p=>`
+    <article class="product-card">
+      <div class="product-art">
+        <span class="category-tag">${p.category.toUpperCase()}</span>
+        <span class="emoji">${p.icon}</span>
+      </div>
+      <div class="product-body">
+        <small>FINORA / ${p.category}</small>
+        <h3>${p.name}</h3>
+        <div class="product-bottom">
+          <strong>${formatMoney(p.price)}</strong>
+          <button class="add-btn" onclick="addToCart('${p.id}')" aria-label="Add ${p.name}">+</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  document.getElementById("noResults").hidden=filtered.length>0;
+}
+
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    currentFilter=btn.dataset.filter;
+    document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    renderProducts();
+  });
+});
+
+document.getElementById("productSearch").addEventListener("input",renderProducts);
+
+// SHOPPING CART
+function saveCart(){
+  try{localStorage.setItem("finoraCart",JSON.stringify(cart));}catch(e){}
+  renderCart();
+}
+
+function addToCart(id,quantity=1,notify=true){
+  const p=products.find(p=>p.id===id);
+  if(!p)return;
+  cart[id]=(cart[id]||0)+quantity;
+  saveCart();
+  if(notify)showToast(p.name+" added to your cart");
+}
+
+function changeQuantity(id,delta){
+  cart[id]=(cart[id]||0)+delta;
+  if(cart[id]<=0)delete cart[id];
+  saveCart();
+}
+
+function renderCart(){
+  let count=0,total=0;
+  let html="";
+
+  products.forEach(p=>{
+    const q=cart[p.id]||0;
+    if(q<=0)return;
+
+    count+=q;
+    total+=p.price*q;
+
+    html+=`
+      <div class="cart-row">
+        <div class="cart-emoji">${p.icon}</div>
+        <div style="flex:1">
+          <strong style="font-size:13px">${p.name}</strong>
+          <p class="muted" style="font-size:12px;margin:5px 0">${formatMoney(p.price)}</p>
+          <div class="quantity">
+            <button onclick="changeQuantity('${p.id}',-1)">−</button>
+            <span>${q}</span>
+            <button onclick="changeQuantity('${p.id}',1)">+</button>
+          </div>
+        </div>
+        <strong style="font-size:12px">${formatMoney(p.price*q)}</strong>
+      </div>`;
+  });
+
+  document.getElementById("cartCount").textContent=count;
+  document.getElementById("cartItems").innerHTML=
+    html||'<p class="muted" style="text-align:center;padding:45px">🛍️<br>Your shopping bag is empty.</p>';
+  document.getElementById("subtotal").textContent=formatMoney(total);
+}
+
+function openCart(){
+  closeAI();
+  document.getElementById("backdrop").classList.add("open");
+  document.getElementById("cartDrawer").classList.add("open");
+}
+
+function closeCart(){
+  document.getElementById("backdrop").classList.remove("open");
+  document.getElementById("cartDrawer").classList.remove("open");
+}
+
+// AI-STYLE SHOPPING ASSISTANT
+// This demo recognizes products and quantities.
+// A real generative AI API can be connected later.
+function openAI(){
+  closeCart();
+  document.getElementById("chatbox").classList.add("open");
+  document.getElementById("chatInput").focus();
+}
+function closeAI(){
+  document.getElementById("chatbox").classList.remove("open");
+}
+
+function addMessage(text,type){
+  const el=document.createElement("div");
+  el.className="bubble "+type;
+  el.textContent=text;
+  const box=document.getElementById("messages");
+  box.appendChild(el);
+  box.scrollTop=box.scrollHeight;
+}
+
+function quantityFor(message,alias){
+  const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  const pattern=new RegExp(
+    "(\\d+|one|two|three|four|five|six|seven|eight|nine|ten)\\s*(?:x\\s*)?"+safe+"\\b",
+    "i"
+  );
+  const result=message.match(pattern);
+  if(!result)return 1;
+  const words={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+  return Math.min(99,words[result[1].toLowerCase()]||Number(result[1])||1);
+}
+
+function assistantReply(message){
+  const text=message.toLowerCase();
+
+  if(/services|activities|what do you do|accounting|consultancy/.test(text)&&
+     !/add|buy|cart/.test(text)){
+    return "FINORA offers accounting, bookkeeping, management consultancy, IT consultancy, e-commerce, computer wholesale, foodstuff trading, cosmetics trading, commercial brokerage and administrative services.";
+  }
+
+  if(/show|browse/.test(text)){
+    if(text.includes("food"))currentFilter="food";
+    else if(text.includes("beauty")||text.includes("perfume"))currentFilter="beauty";
+    else if(text.includes("technology")||text.includes("tech"))currentFilter="technology";
+    document.querySelectorAll(".filter").forEach(b=>{
+      b.classList.toggle("active",b.dataset.filter===currentFilter);
+    });
+    renderProducts();
+    return "I've updated the marketplace products. Scroll to the store to explore them.";
+  }
+
+  let added=[];
+
+  products.forEach(p=>{
+    const alias=[...p.aliases].sort((a,b)=>b.length-a.length).find(a=>{
+      const safe=a.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+      return new RegExp("(^|[^a-z])"+safe+"(?=$|[^a-z])","i").test(text);
+    });
+    if(alias){
+      const q=quantityFor(text,alias);
+      addToCart(p.id,q,false);
+      added.push(q+" × "+p.name);
+    }
+  });
+
+  if(added.length){
+    return "Added these products to your cart:\n\n"+
+      added.join("\n")+
+      "\n\nYour shopping bag has been updated. These are demo products.";
+  }
+
+  if(text.includes("cart")||text.includes("total")){
+    let total=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
+    return "Your current cart subtotal is "+formatMoney(total)+". Tap the shopping bag to view it.";
+  }
+
+  return "I can help you with our business activities and sample shopping catalog.\n\nTry: Add 2 keyboards, 1 monitor and 3 USB-C hubs.";
+}
+
+function sendChat(message){
+  const value=message.trim();
+  if(!value)return;
+  addMessage(value,"user");
+  setTimeout(()=>addMessage(assistantReply(value),"bot"),250);
+}
+
+function suggest(message){
+  openAI();
+  sendChat(message);
+}
+
+document.getElementById("chatForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const input=document.getElementById("chatInput");
+  sendChat(input.value);
+  input.value="";
+});
+
+// CHECKOUT
+function openCheckout(){
+  if(!Object.values(cart).some(q=>q>0)){
+    showToast("Your cart is empty.");
+    return;
+  }
+  closeCart();
+  const total=products.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0);
+  document.getElementById("checkoutSummary").textContent=
+    "Example cart subtotal: "+formatMoney(total);
+  document.getElementById("checkoutWrap").classList.add("open");
+}
+
+function closeCheckout(){
+  document.getElementById("checkoutWrap").classList.remove("open");
+}
+
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
+  e.preventDefault();
+
+  if(!COMPANY_EMAIL){
+    showToast("Checkout is in demo mode. Connect your merchant account and company email before accepting orders.");
+    return;
+  }
+
+  const items=products.filter(p=>(cart[p.id]||0)>0)
+    .map(p=>(cart[p.id])+" × "+p.name+" - "+formatMoney(p.price*cart[p.id]))
+    .join("\n");
+
+  const name=document.getElementById("buyerName").value;
+  const email=document.getElementById("buyerEmail").value;
+  const address=document.getElementById("buyerAddress").value;
+  const payment=document.querySelector('input[name="payment"]:checked').value;
+
+  const body=`Name: ${name}
+Email: ${email}
+Address: ${address}
+Preferred payment: ${payment}
+
+Items:
+${items}
+
+This is a quotation request, not a confirmed payment or order.`;
+
+  location.href="mailto:"+COMPANY_EMAIL+
+    "?subject="+encodeURIComponent("FINORA Quotation Request")+
+    "&body="+encodeURIComponent(body);
+});
+
+// CONTACT FORM
+document.getElementById("contactForm").addEventListener("submit",e=>{
+  e.preventDefault();
+
+  if(!COMPANY_EMAIL){
+    showToast("Add your company email address in the configuration to activate enquiries.");
+    return;
+  }
+
+  const name=document.getElementById("contactName").value;
+  const email=document.getElementById("contactEmail").value;
+  const message=document.getElementById("contactMessage").value;
+
+  const body=`Name: ${name}\nEmail: ${email}\n\n${message}`;
+  location.href="mailto:"+COMPANY_EMAIL+
+    "?subject="+encodeURIComponent("FINORA Website Enquiry")+
+    "&body="+encodeURIComponent(body);
+});
+
+// NOTIFICATION
+let toastTimer;
+function showToast(message){
+  const el=document.getElementById("toast");
+  el.textContent=message;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove("show"),3500);
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    closeAI();
+    closeCart();
+    closeCheckout();
+    skipIntro();
+  }
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
